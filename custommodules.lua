@@ -14,9 +14,9 @@ end
 infjump = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
     ["Name"] = "infjump",
     ["Function"] = function(callback)
-        local InfiniteJumpEnabled = true
+        
         game:GetService("UserInputService").JumpRequest:connect(function()
-            if InfiniteJumpEnabled then
+            if callback then
                 game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass 'Humanoid':ChangeState("Jumping")
             end
         end)
