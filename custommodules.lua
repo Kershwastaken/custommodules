@@ -14,12 +14,14 @@ end
 infjump = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
     ["Name"] = "infjump",
     ["Function"] = function(callback)
-        
+        if callback then
         game:GetService("UserInputService").JumpRequest:connect(function()
             if callback then
                 game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass 'Humanoid':ChangeState("Jumping")
             end
+                        
         end)
+                end
     end,
     ["HoverText"] = "hold spacebar to jump forever"
 })
