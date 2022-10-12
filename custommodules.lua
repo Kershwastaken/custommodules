@@ -28,7 +28,7 @@ infjump = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOpti
 
 
 
-runcode(function()
+
 	local FastDrop = {["Enabled"] = false}
 	FastDrop = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
 		["Name"] = "Dupe",
@@ -48,7 +48,7 @@ runcode(function()
 			end
 		end
 	})
-end)
+
 
 
 
